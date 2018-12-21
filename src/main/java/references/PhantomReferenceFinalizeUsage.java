@@ -17,6 +17,10 @@ public class PhantomReferenceFinalizeUsage<T> {
     private ReferenceQueue<T> referenceQueue = new ReferenceQueue<>();
     private List<LargeObjectFinalizer> largeObjectFinalizerList = new ArrayList<>();
 
+    public PhantomReferenceFinalizeUsage(List<T> items) {
+        init(items);
+    }
+
     private class LargeObjectFinalizer extends PhantomReference<T> {
 
         public LargeObjectFinalizer(T referent, ReferenceQueue<? super T> q) {
@@ -30,7 +34,7 @@ public class PhantomReferenceFinalizeUsage<T> {
     }
 
 
-    public void addItem(List<T> items){
+    private void init(List<T> items){
         for (T item : items) {
             largeObjectFinalizerList.add(new LargeObjectFinalizer(item, referenceQueue));
         }
