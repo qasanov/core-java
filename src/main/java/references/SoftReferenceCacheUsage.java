@@ -23,7 +23,7 @@ public class SoftReferenceCacheUsage<K,V> {
     public V get(K key){
         V value = null;
         SoftReference<V> reference = map.get(key);
-        if(reference != null)
+        if(reference != null )
             value = reference.get();
 
         return value;

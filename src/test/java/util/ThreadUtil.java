@@ -1,6 +1,6 @@
 package util;
 
-public class ThreadHelp {
+public class ThreadUtil {
 
     private static final long DEFAULT_SLEEP_TIME = 100;
 

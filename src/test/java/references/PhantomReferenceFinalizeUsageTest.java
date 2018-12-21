@@ -2,7 +2,7 @@ package references;
 
 import org.junit.Before;
 import org.junit.Test;
-import util.ThreadHelp;
+import util.ThreadUtil;
 
 import java.util.*;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -27,7 +27,7 @@ public class PhantomReferenceFinalizeUsageTest {
     public void referentEnqueued() {
         largeObjects = null;
         System.gc();
-        ThreadHelp.sleep();
+        ThreadUtil.sleep();
 
         assertThat(referenceApp.isAllEnqueued()).isTrue();
     }
@@ -36,7 +36,7 @@ public class PhantomReferenceFinalizeUsageTest {
     public void resourcedCleaned() {
         largeObjects = null;
         System.gc();
-        ThreadHelp.sleep();
+        ThreadUtil.sleep();
 
         referenceApp.finalizeResource();
         assertThat(referenceApp.getNumberOfCleanUp()).isEqualTo(LIST_SIZE);

@@ -2,10 +2,9 @@ package references;
 
 import org.junit.Before;
 import org.junit.Test;
-import util.ThreadHelp;
+import util.ThreadUtil;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.*;
 
 public class PhantomReferenceFinalizeUsageSingleObjTest {
 
@@ -22,7 +21,7 @@ public class PhantomReferenceFinalizeUsageSingleObjTest {
     public void referentEnqueued() {
         referent = null;
         System.gc();
-        ThreadHelp.sleep();
+        ThreadUtil.sleep();
         assertThat(phantomReference.isEnqueued()).isTrue();
     }
 
@@ -30,7 +29,7 @@ public class PhantomReferenceFinalizeUsageSingleObjTest {
     public void resourceCleaned() {
         referent = null;
         System.gc();
-        ThreadHelp.sleep();
+        ThreadUtil.sleep();
         phantomReference.finalizeResource();
         assertThat(phantomReference.isResourceCleaned()).isTrue();
     }
