@@ -16,28 +16,28 @@ public class GeneralTest {
 
     @Test
     public void withTypeDeclaration() {
-        Operation ops = (int a, int b) -> a+b;
+        GeneralOperation ops = (int a, int b) -> a+b;
         int opsResult = operate(ops);
         assertThat(opsResult).isEqualTo(ADDITION_RESULT);
     }
 
     @Test
     public void withoutTypeDeclaration() {
-        Operation ops = (a, b) -> a-b;
+        GeneralOperation ops = (a, b) -> a-b;
         int opsResult = operate(ops);
         assertThat(opsResult).isEqualTo(SUBSTRACTION_RESULT);
     }
 
     @Test
     public void withReturnStatement() {
-        Operation ops = (a, b) -> { return a+b; };
+        GeneralOperation ops = (a, b) -> { return a+b; };
         int opsResult = operate(ops);
         assertThat(opsResult).isEqualTo(ADDITION_RESULT);
     }
 
     @Test
     public void withoutReturnStatement() {
-        Operation ops = (a, b) -> a+b; ;
+        GeneralOperation ops = (a, b) -> a+b; ;
         int opsResult = operate(ops);
         assertThat(opsResult).isEqualTo(ADDITION_RESULT);
     }
@@ -48,7 +48,7 @@ public class GeneralTest {
         assertThat(str.test("Hello")).isEqualTo(true);
     }
 
-    private int operate(Operation ops){
+    private int operate(GeneralOperation ops){
         return ops.operation(FIST_VALUE, SECOND_VALUE);
     }
 }
