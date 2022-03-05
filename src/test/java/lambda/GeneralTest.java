@@ -51,4 +51,9 @@ public class GeneralTest {
     private int operate(GeneralOperation ops){
         return ops.operation(FIST_VALUE, SECOND_VALUE);
     }
+
+    @FunctionalInterface
+    interface GeneralOperation {
+        int operation(int a, int b);
+    }
 }
