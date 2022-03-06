@@ -4,8 +4,6 @@ import org.junit.Test;
 
 import java.util.stream.Stream;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 /**
  * @see : https://stackify.com/streams-guide-java-8/
  */

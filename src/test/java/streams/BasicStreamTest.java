@@ -12,7 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * @see : https://www.tutorialspoint.com/java8/java8_streams.htm
- * https://stackify.com/streams-guide-java-8/
+ *        https://stackify.com/streams-guide-java-8/
  */
 public class BasicStreamTest {
 

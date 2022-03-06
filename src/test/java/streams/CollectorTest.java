@@ -11,6 +11,9 @@ import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+/**
+ * @see : https://stackify.com/streams-guide-java-8/
+ */
 public class CollectorTest {
 
     private final List<Integer> integerList = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
@@ -26,7 +29,7 @@ public class CollectorTest {
     @Test
     public void toSet() {
         Set<Integer> integerSet = integerList.stream().filter(integer -> integer % 2 == 0).collect(Collectors.toSet());
-        assertThat(integerSet).isEqualTo(Stream.of(2,4,6,8,10).collect(Collectors.toSet()));
+        assertThat(integerSet).isEqualTo(Stream.of(2, 4, 6, 8, 10).collect(Collectors.toSet()));
     }
 
     @Test
