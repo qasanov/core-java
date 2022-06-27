@@ -76,7 +76,7 @@ public class OptionalTest {
     }
 
     @Test
-    public void orElse_orElse_Similarity() {
+    public void orElse_orElseGet_Similarity() {
         Integer a = null, b = 77;
 
         Integer orElseValue = Optional.ofNullable(a).orElse(b);

@@ -15,6 +15,9 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class StreamConceptTest {
 
+    /**
+     * @implNote : Short-circuiting operations allow computations on infinite streams to complete in finite time
+     */
     @Test
     public void shortCircuiting() {
         Stream<Integer> infiniteStream = Stream.iterate(2, integer -> integer * 2);
