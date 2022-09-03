@@ -2,9 +2,7 @@ package collection;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -29,6 +27,10 @@ public class ConversionTest {
         List<Integer> integerList = Arrays.asList(1, 2, 3, 4, 5);
         Integer[] targetArray = integerList.toArray(new Integer[0]);
         assertThat(targetArray.length).isEqualTo(integerList.size());
+    }
+    @Test
+    public void hashMap(){
+        Map<String, Integer> map = new HashMap<>();
     }
 
 }

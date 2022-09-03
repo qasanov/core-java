@@ -2,6 +2,8 @@ package streams;
 
 import org.junit.Test;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.function.IntPredicate;
 import java.util.stream.Collectors;
@@ -18,6 +20,19 @@ public class BasicStreamTest {
 
     private final List<Integer> integerList = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
     private final List<String> stringList = Arrays.asList("abc", "", "bc", "efg", "abcd", "", "jkl");
+
+    private final List<String> stringListWithUnderScore = Arrays.asList("a_b_c",  "b_c_d", "e_f_g", "a_b_c", "j_k_l");
+
+    @Test
+    public void splitString() {
+        List<Object[]> ojbList= stringListWithUnderScore.stream()
+                .map( s -> s.split("_"))
+                .map(strings -> new Object[]{strings[0],strings[1],strings[2]})
+                .collect(Collectors.toList());
+
+        assertThat(ojbList.size()).isEqualTo(stringListWithUnderScore.size());
+        assertThat(ojbList.get(0).length).isEqualTo(3);
+    }
 
     @Test
     public void filter() {
